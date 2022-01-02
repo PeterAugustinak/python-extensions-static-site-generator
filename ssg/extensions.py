@@ -12,7 +12,7 @@ def load_module(directory, name):
 
 def load_directory(directory):
     """Loads entire directory of extensions."""
-    for path in Path(directory).rglob('.py'):
+    for path in directory.rglob('.py'):
         load_module(directory.as_posix(), path.stem)
 
 
