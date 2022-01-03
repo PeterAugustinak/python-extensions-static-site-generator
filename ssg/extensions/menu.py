@@ -7,7 +7,7 @@ files = []
 @hooks.register("collect_files")
 def collect_files(source, site_parsers):
     """Gathers all Markdown and ReStructuredText file names."""
-    not valid = lambda p: p.isinstance(parsers.ResourceParser)
+    valid = lambda p: not isinstance(p, parsers.ResourceParser)
     for path in source.rglob("*"):
         for parser in list(filter(site_parsers, valid)):
             if parser.valid_file_ext(path.suffix):
