@@ -13,7 +13,7 @@ def register(hook, order=0):
 
 
 def event(hook, *args):
-    """Fires an aevent."""
+    """Fires an event."""
     for order in sorted(_callbacks.get(hook, {})):
         for func in _callbacks[hook][order]:
             func(*args)
